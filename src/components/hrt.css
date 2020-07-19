@@ -1,0 +1,14 @@
+.crd{
+  margin-top: 5%;
+  width: 50%;
+  height: 400px;
+}
+
+#crd_bdy{
+  padding-top: 12%;
+}
+
+#todo-title{
+  margin-top: 1%;
+  text-align: center;
+}
