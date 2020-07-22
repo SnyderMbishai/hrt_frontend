@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from './actionTypes';
 
+const baseurl = "http://127.0.0.1:8000";
 // C
 const createTodo = data => ({
     type : types.CREATE_TODO,
@@ -19,7 +20,7 @@ const createTodoFails = errorMessage => ({
 
 const createTodoAction = data => (dispatch) =>{
     dispatch(createTodo(data));
-    return axios.post("", data, {
+    return axios.post(`${baseurl}/api/todos`, data, {
         headers : {
             'Content-Type': 'application/json',
         },
@@ -47,7 +48,7 @@ const fetchTodoFails = errorMessage => ({
 function fetchTodosAction(){
     return(dispatch) =>{
         dispatch(fetchTodo());
-        return axios.get("http://127.0.0.1:8000/api/todos")
+        return axios.get(`${baseurl}/api/todos`)
             .then(payload => dispatch(fetchTodoSuccess(payload.data)))
             .catch(errorMessage => dispatch(fetchTodoFails(errorMessage)));
     };
@@ -80,7 +81,7 @@ const updateTodoFails = errorMessage => ({
 
 const UpdateTodoAction = data => (dispatch) =>{
     dispatch(updateTodo(data));
-    return axios.put("", data, {
+    return axios.put(`${baseurl}/api/todos/${data.id}`, data.payload, {
         headers : {
             'Content-Type': 'application/json',
         },
@@ -107,7 +108,7 @@ const deleteTodoFails = errorMessage => ({
 
 const DeleteTodoAction = data => (dispatch) =>{
     dispatch(deleteTodo(data));
-    return axios.delete("", data, {
+    return axios.delete(`${baseurl}/api/todos/${data}`, data, {
         headers : {
             'Content-Type': 'application/json',
         },

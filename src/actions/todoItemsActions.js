@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from './actionTypes';
 
+const baseurl = "http://127.0.0.1:8000";
 // C
 const createTodoItem = data => ({
     type : types.CREATE_TODO_ITEM,
@@ -19,7 +20,7 @@ const createTodoItemFails = errorMessage => ({
 
 const createTodoItemAction = data => (dispatch) =>{
     dispatch(createTodoItem(data));
-    return axios.post("", data, {
+    return axios.post(`${baseurl}/api/todos/${data.id}/todo-items`, data.data, {
         headers : {
             'Content-Type': 'application/json',
         },
@@ -80,7 +81,7 @@ const updateTodoItemFails = errorMessage => ({
 
 const UpdateTodoItemAction = data => (dispatch) =>{
     dispatch(updateTodoItem(data));
-    return axios.put("", data, {
+    return axios.put(`${baseurl}/api/todos/${data.todo_id}/todo-items/${data.item_id}`, data.payload, {
         headers : {
             'Content-Type': 'application/json',
         },
@@ -107,7 +108,7 @@ const deleteTodoItemFails = errorMessage => ({
 
 const DeleteTodoItemAction = data => (dispatch) =>{
     dispatch(deleteTodoItem(data));
-    return axios.delete("", data, {
+    return axios.delete(`${baseurl}/api/todos/${data.todo_id}/todo-items/${data.item_id}`, data, {
         headers : {
             'Content-Type': 'application/json',
         },

@@ -21,10 +21,12 @@ const fetchHelloFails = errorMessage => {
     })
 };
 
+const baseurl = "http://127.0.0.1:8000";
+
 export function helloAction(){
     return(dispatch) =>{
         dispatch(fetchHello());
-        return axios.get("http://127.0.0.1:8000/hello")
+        return axios.get(`${baseurl}/hello`)
             .then(payload => dispatch(fetchHelloSuccess(payload.data)))
             .catch(errorMessage => dispatch(fetchHelloFails(errorMessage)));
     };

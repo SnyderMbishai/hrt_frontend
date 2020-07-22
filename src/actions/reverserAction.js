@@ -16,10 +16,11 @@ const reverseFails = errorMessage => ({
     errorMessage,
 });
 
+const baseurl = "http://127.0.0.1:8000";
+
 export const reverseVowels = data => (dispatch) =>{
     dispatch(reverse(data));
-    console.log(data, "rdata")
-    return axios.post("http://127.0.0.1:8000/vowel/vowel-service", data, {
+    return axios.post(`${baseurl}/vowel/vowel-service`, data, {
         headers : {
             'Content-Type': 'application/json',
         },
