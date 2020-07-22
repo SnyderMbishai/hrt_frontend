@@ -32,7 +32,7 @@ export class Reverse extends Component{
             <div>
             <TopNav />
             <div>
-            <Card className="text-center mx-auto crd" justify="true" border="info">
+            <Card className="text-center mx-auto crd-rev" justify="true" border="info">
                 <Card.Header></Card.Header>
                 <Card.Body id="crd_bdy">
                     <Form className="rev-form" justify="true" onSubmit={this.handleSubmit}>
@@ -41,7 +41,13 @@ export class Reverse extends Component{
                             <Form.Control as="textarea"  placeholder="Enter a sentence to reverse its vowels" onChange={this.handleChange} />
                             <Form.Text className="text-muted" > 
                             </Form.Text>
-                        </Form.Group>                        
+                        </Form.Group>      
+                        <Form.Group controlId="other">
+                            <Form.Label>Other:</Form.Label>
+                            <Form.Control as="textarea"  placeholder="Enter a sentence to reverse its vowels"  />
+                            <Form.Text className="text-muted" > 
+                            </Form.Text>
+                        </Form.Group>                   
                         <Button variant="info" type="submit">
                             Reverse Vowels
                         </Button>

@@ -3,12 +3,31 @@
   width: 50%;
   height: 400px;
 }
+#h{
+  margin-top: 20%;
+  text-align: center;
+  font-size: 700%;
+}
 
 #crd_bdy{
   padding-top: 12%;
+}
+.crd-rev{
+  margin-top: 5%;
+  width: 50%;
+  height: 500px;
 }
 
 #todo-title{
   margin-top: 1%;
   text-align: center;
+}
+
+#bt-c{  
+  text-align: center;
+}
+
+#crd-col{
+  margin-left: 2%;
+  margin-right: 2%;
 }
